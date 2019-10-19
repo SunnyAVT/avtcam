@@ -1,9 +1,9 @@
 import pymba
 import numpy
-from ..jetavtcam.avt_camera import AVTCamera
+from avtcam import AVTCamera
 import ipywidgets
 from IPython.display import display
-from ..jetavtcam.utils import bgr8_to_jpeg
+from avtcam.utils import bgr8_to_jpeg
 
 
 def main():

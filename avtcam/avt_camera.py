@@ -33,7 +33,7 @@ class AVTCamera(traitlets.HasTraits):
         self.init_cam()
         self.getFrame()
 
-        atexit.register(self.release_vimba)
+        #atexit.register(self.release_vimba)
         atexit.register(self.release_cam)
 
 
@@ -63,7 +63,7 @@ class AVTCamera(traitlets.HasTraits):
         type, image_8bit = self.convertFrame(frame)
         image = self.fillUserFrame(type, image_8bit)
         self.value = cv2.resize(image, (int(self.width), int(self.height)))
-        print("avt frame_callback")
+        #print("avt frame_callback")
 
 
     def fillUserFrame(self, type, frame):
@@ -95,7 +95,7 @@ class AVTCamera(traitlets.HasTraits):
         frame_pixel_format = frame.pixel_format
         Width = self.capture_width
         Height = self.capture_height
-        print("Resolution: %dx%d, FrameSize: %d, PixelFormat: %s" %(Width, Height, camera_frame_size, frame_pixel_format))
+        #print("Resolution: %dx%d, FrameSize: %d, PixelFormat: %s" %(Width, Height, camera_frame_size, frame_pixel_format))
         data_bytes = frame.buffer_data()
         if (frame_pixel_format == "Mono8" or frame_pixel_format == "BayerRG8" or frame_pixel_format == "BayerGR8"):
             frame_8bits = np.ndarray(buffer=data_bytes, dtype=np.uint8, shape=(Height, Width))
