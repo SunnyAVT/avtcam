@@ -1,8 +1,8 @@
 # avtcam
 
-avtcam is an easy to use Python camera interface for NVIDIA Jetson.
+avtcam is an easy to use Python camera interface for NVIDIA Jetson or other embedded platform.
 
-*  Works with various [Allied Vision Camera](www.alliedvision.com) in Jetson Nano or other embedded board
+*  Works with various [Allied Vision Camera](www.alliedvision.com) in Jetson Nano or other embedded boards.
 
 *  Easily read images as ``numpy`` arrays with ``image = camera.read()``
 
