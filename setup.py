@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='avtcam',
-    version='0.0.0',
-    description='An easy to use Allied Vision camera interface for NVIDIA Jetson',
+    version='0.1.0',
+    description='An easy to use Allied Vision camera interface for NVIDIA Jetson and other third-party embedded platforms',
     long_description=(
           "avtcam is a Python wrapper for application usage. avtcam use the existing module which wrapped Allied Vision's Vimba C API."
           "file included in the Vimba installation to provide a simple Python interface for Allied "
@@ -18,10 +18,16 @@ setup(
     url='https://github.com/SunnyAVT/avtcam',
     zip_safe=False,
     install_requires=[
-      'numpy',
+        'numpy',
+        'pymba',
+        'traitlets',
     ]
 )
 
 # python3 -m pip install --user --upgrade setuptools wheel twine
-# python3 setup.py sdist bdist_wheel
-# python3 -m twine upload dist/*
+# python3 setup.py build
+# sudo python3 setup.py install
+
+# sudo python3 setup.py sdist bdist_wheel
+# twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
+# python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps avtcam
