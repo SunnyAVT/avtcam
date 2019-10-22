@@ -1,12 +1,13 @@
 import cv2
 import time
+import numpy
 from avt_camera import AVTCamera
+from avt_camera import bgr8_to_jpeg
 
 '''
 # Display with image_widget in Jupyter
 import ipywidgets
 from IPython.display import display
-from avt_camera import bgr8_to_jpeg
 '''
 
 update_flag = False
@@ -22,7 +23,7 @@ def main():
     print("image: ", image.shape)
     print("callback return - ", camera.value.shape)
 
-    cv2.imshow("cam", image)
+    cv2.imshow("SingleFrame", image)
     c = cv2.waitKey(100)
     update_flag = False
 
@@ -62,6 +63,16 @@ def main():
             c = cv2.waitKey(100)
             if c == ord('q') or c == 27:
                 break
+            # capture one image with keyin 'c'
+            elif c == ord('c'):
+                cv2.imshow("Snapshot", image)
+                cv2.waitKey(50)
+                '''
+                cap_image = bgr8_to_jpeg(image)
+                f = open('/home/capture.jpg', 'wb')
+                f.write(bytearray(cap_image))
+                f.close()
+                '''
 
     time.sleep(1)
     camera.unobserve(update_image, names='value')
