@@ -15,7 +15,7 @@ avtcam makes it easy to prototype AI projects in Python, especially within the J
 
 [Method 1 -- install with pip]
 ```bash
-python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps avtcam
+python3 -m pip install avtcam --user
 ```
 
 [Method 2 -- install with source code]
