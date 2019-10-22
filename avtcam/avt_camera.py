@@ -4,6 +4,8 @@ import numpy as np
 import traitlets
 from pymba import Vimba, VimbaException, Frame
 
+def bgr8_to_jpeg(value, quality=75):
+    return bytes(cv2.imencode('.jpg', value)[1])
 
 class AVTCamera(traitlets.HasTraits):
     # global vimba and vimba cameras group
@@ -54,7 +56,6 @@ class AVTCamera(traitlets.HasTraits):
         elif change['old'] and not change['new']:
             # transition from running -> not running
             self._running = False
-            #self.thread.join()
             self.curCam.disarm()
             self.AcqMode = 'Unknown'
 

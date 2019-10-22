@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='avtcam',
-    version='0.1.0',
+    version='0.2.0',
     description='An easy to use Allied Vision camera interface for NVIDIA Jetson and other third-party embedded platforms',
     long_description=(
           "avtcam is a Python wrapper for application usage. avtcam use the existing module which wrapped Allied Vision's Vimba C API."

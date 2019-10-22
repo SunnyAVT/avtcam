@@ -6,7 +6,7 @@ from avt_camera import AVTCamera
 # Display with image_widget in Jupyter
 import ipywidgets
 from IPython.display import display
-from utils import bgr8_to_jpeg
+from avt_camera import bgr8_to_jpeg
 '''
 
 update_flag = False
