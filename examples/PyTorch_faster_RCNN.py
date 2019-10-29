@@ -203,6 +203,12 @@ def main():
 def object_detection_live(model, img, threshold=0.5, rect_th=3, text_size=3, text_th=3):
     transform = T.Compose([T.ToTensor()])
     img = transform(img)
+    if torch.cuda.is_available():
+        model.cuda()
+        img = img.cuda()
+    else:
+        model.cpu()
+        img = img.cpu()
     pred = model([img])
     pred_class = [COCO_INSTANCE_CATEGORY_NAMES[i] for i in list(pred[0]['labels'].numpy())]
     pred_boxes = [[(i[0], i[1]), (i[2], i[3])] for i in list(pred[0]['boxes'].detach().numpy())]
